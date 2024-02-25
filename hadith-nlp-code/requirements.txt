@@ -1,0 +1,7 @@
+numpy==1.26.4
+pandas==2.2.1
+PyArabic==0.6.15
+scikit_learn==1.4.0
+sentence_transformers==2.3.1
+spacy==3.7.2
+tqdm==4.66.1

@@ -1,0 +1,103 @@
+@base <http://semantichadith.com/ontology> .
+            @prefix : <http://www.semantichadith.com/ontology/> .
+            @prefix owl: <http://www.w3.org/2002/07/owl#> .
+            @prefix qur: <http://quranontology.com/Resource/> .
+            @prefix wiki: <https://www.wikidata.org/wiki/> .
+
+:Gabriel rdfs:seeAlso qur:Topic2-7-7-1 .
+
+:Malik rdfs:seeAlso qur:Topic2-7-7-3 .
+
+:nan rdfs:seeAlso qur:Topic2-7-7-4 .
+
+:Mikaeel rdfs:seeAlso qur:Topic2-7-7-5 .
+
+:Heaven rdfs:seeAlso qur:Topic2-3-4 .
+
+:Hell rdfs:seeAlso qur:Topic2-3-9 .
+
+:Injeel rdfs:seeAlso qur:Topic2-4-1 .
+
+:Bible rdfs:seeAlso qur:Topic2-4-2 .
+
+:Zabur rdfs:seeAlso qur:Topic2-4-3 .
+
+:Quran rdfs:seeAlso qur:Topic4 .
+
+:DayOfResurection rdfs:seeAlso qur:Topic2-8-13 .
+
+:Satan rdfs:seeAlso qur:Topic2-3-7 .
+
+:Uhud rdfs:seeAlso qur:Topic5-9-1 .
+
+:Badr rdfs:seeAlso qur:Topic5-9-2 .
+
+:Tabuk rdfs:seeAlso qur:Topic5-9-4 .
+
+:Hudaibiya rdfs:seeAlso qur:Topic5-9-5 .
+
+:Hunayn rdfs:seeAlso qur:Topic5-9-7 .
+
+:usury rdfs:seeAlso qur:Topic6-5-16-3 .
+
+:Stealing rdfs:seeAlso qur:Topic6-5-16-4 .
+
+:DrinkingAlcohol rdfs:seeAlso qur:Topic6-5-2-2 .
+
+:usury rdfs:seeAlso qur:Topic7-2-29 .
+
+:Stealing rdfs:seeAlso qur:Topic7-2-32 .
+
+:DrinkingAlcohol rdfs:seeAlso qur:Topic7-2-33 .
+
+:Adultry rdfs:seeAlso qur:Topic7-2-60 .
+
+:prostitution rdfs:seeAlso qur:Topic7-2-13 .
+
+:prostitution rdfs:seeAlso qur:Topic7-2-38 .
+
+:Villification rdfs:seeAlso qur:Topic7-2-16 .
+
+:Villification rdfs:seeAlso qur:Topic7-2-57 .
+
+:Villification rdfs:seeAlso qur:Topic7-2-66 .
+
+:Hypocrisy rdfs:seeAlso qur:Topic7-2-30 .
+
+:Immorality rdfs:seeAlso qur:Topic7-2-46 .
+
+:Lying rdfs:seeAlso qur:Topic7-2-54 .
+
+:usury rdfs:seeAlso qur:Topic9-17 .
+
+:Zakat rdfs:seeAlso qur:Topic9-18 .
+
+:Stealing rdfs:seeAlso qur:Topic9-19 .
+
+:Zakat rdfs:seeAlso qur:Topic9-20 .
+
+:Jews,Christians rdfs:seeAlso qur:Topic14-1 .
+
+:Children-of-Israel rdfs:seeAlso qur:Topic14-2 .
+
+:Sabians rdfs:seeAlso qur:Topic14-3 .
+
+:Magians rdfs:seeAlso qur:Topic14-4 .
+
+:Christians rdfs:seeAlso qur:Topic14-5 .
+
+:Gog-and-Magog rdfs:seeAlso qur:Topic15-28 .
+
+:Shuaib rdfs:seeAlso qur:Topic15-12 .
+
+:Thamud rdfs:seeAlso qur:Topic15-14 .
+
+:Aad rdfs:seeAlso qur:Topic15-20 .
+
+:Romans rdfs:seeAlso qur:Topic15-17 .
+
+:Lut rdfs:seeAlso qur:Topic15-26 .
+
+:Bedouin rdfs:seeAlso qur:Topic8-11-2 .
+
+:Haroon rdfs:seeAlso qur:Topic15-34-6 .

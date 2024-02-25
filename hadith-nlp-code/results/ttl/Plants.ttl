@@ -1,0 +1,59 @@
+@base <http://semantichadith.com/ontology> .
+    @prefix : <http://www.semantichadith.com/ontology/> .
+    @prefix owl: <http://www.w3.org/2002/07/owl#> .
+    @prefix qur: <http://quranontology.com/Resource/> .
+    @prefix wiki: <https://www.wikidata.org/wiki/> .
+
+:Acacia a :Plant .
+
+:Alfalfa a :Plant .
+
+:Basil a :Plant .
+
+:Camphor a :Plant .
+
+:Crop a :Plant .
+
+:Cucumber a :Plant .
+
+:DatePalm a :Plant .
+
+:Fig a :Plant .
+
+:Garlic a :Plant .
+
+:Ginger a :Plant .
+
+:Gourd a :Plant .
+
+:Grape a :Plant .
+
+:Grass a :Plant .
+
+:Herb a :Plant .
+
+:Husk a :Plant .
+
+:Leaf a :Plant .
+
+:Lentil a :Plant .
+
+:LoteTree a :Plant .
+
+:Mustard_Plant a :Plant .
+
+:Olive a :Plant .
+
+:Onion a :Plant .
+
+:Pomegranate a :Plant .
+
+:Salvadora_Persica a :Plant .
+
+:Tamarix a :Plant .
+
+:Thorny_plant a :Plant .
+
+:Tree a :Plant .
+
+:Vegetation a :Plant .

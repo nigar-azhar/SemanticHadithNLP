@@ -1,0 +1,141 @@
+@base <http://semantichadith.com/ontology> .
+    @prefix : <http://www.semantichadith.com/ontology/> .
+    @prefix owl: <http://www.w3.org/2002/07/owl#> .
+    @prefix qur: <http://quranontology.com/Resource/> .
+    @prefix wiki: <https://www.wikidata.org/wiki/> .
+
+:MasjidAlHaram a GeographicalLocation .
+
+:PiousCaliphs a HistoricGroupOfPeople .
+
+:DeathAngel a :Angel .
+
+:BeginningOfCreation a :Topic
+
+:salah a :Salah, :PillarsOfIslam .
+
+:ShortenedPrayer a :Topic
+
+:Azan a Topic .
+
+
+:Hajj a :PillarsOfIslam .
+
+:Zakah a :PillarsOfIslam .
+
+:Saum a :PillarsOfIslam .
+
+:Tauhid a :PillarsOfIslam .
+
+:Qadr a :ArticlesOfFaith
+
+:FearPrayer a :Salah .
+
+:FridayPrayer a :Salah .
+
+:WitrPrayer a :Salah .
+
+:salah rdfs:seeAlso :Azan, :FearPrayer, :FridayPrayer, :ShortenedPrayer, :WitrPrayer .
+
+:Faith a :Topic .
+
+:Cleanliness a :Topic
+
+:Tayammum a :Topic .
+
+:Wash a :Topic .
+
+:Ablution a :Topic .
+
+:Cleanliness :hasSubTopic :Tayammum, :Wash, :Ablution
+
+:Trade a :Topic .
+
+:Agriculture a :Topic .
+
+:Hunting a :Topic .
+
+:Mortgages a :Topic .
+
+:Expiation a :Topic .
+
+:Testimony a :Topic .
+
+:Health a :Topic .
+
+:Jihad a :Topic .
+
+:Divorce a :Topic .
+
+:Marriage a :Topic .
+
+:Family a :Topic .
+
+:Family rdfs:seeAlso Marriage
+
+:Marriage rdfs:seeAlso Divorce
+
+:GoodMorals a :Topic .
+
+:Charity a Topic .
+
+:Honesty a Topic .
+
+:Revelation a :Topic .
+
+:GreatCrimes a :Crime .
+
+:Punishments a :Topic .
+
+:Sale a Topic .
+
+:DispraisedMorals a Topic .
+
+:BreakPromise a Topic .
+
+:DispraisedMorals :hasSubTopic BreakPromise, Lying, Stealing, Villification, Backbiting .
+
+:Backbiting a :Topic .
+
+:GoodMorals :hasSubTopic :Charity, :Honesty .
+
+:Trade :hasSubTopic :Sale .
+
+
+:PiousCaliphs :hasMember	:AbuBakr .
+
+:PiousCaliphs	:hasMember	:UmerBinKhattab .
+
+:PiousCaliphs	:hasMember	:UsmanBinAffan .
+
+:PiousCaliphs	:hasMember	:AliBinAbuTalib .
+
+:WivesOfMuhammad	:hasMember	:Aisha .
+
+:WivesOfMuhammad	:hasMember	:Hafsa .
+
+:WivesOfMuhammad	:hasMember	:Zainab .
+
+:WivesOfMuhammad	:hasMember	:Khadijah  .
+
+:WivesOfMuhammad	:hasMember	:Juwairiyah  .
+
+:WivesOfMuhammad	:hasMember	:Maymunah .
+
+:WivesOfMuhammad	:hasMember	:Safiyyah  .
+
+:Muhajirun	:hasMember	:AbuBakr .
+
+:Muhajirun	:hasMember	:UmerBinKhattab .
+
+:Muhajirun	:hasMember	:UsmanBinAffan .
+
+:Muhajirun	:hasMember	:AliBinTalib .
+
+:Quraysh	:hasMember	:AliBinTalib .
+
+:Quraysh	:hasMember	:Muhammad .
+
+:Zabur :mentionedIn :SB-HD3415 .
+
+:Zabur :mentionedIn :SB-HD4713 .

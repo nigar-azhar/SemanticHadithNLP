@@ -1,0 +1,63 @@
+@base <http://semantichadith.com/ontology> .
+    @prefix : <http://www.semantichadith.com/ontology/> .
+    @prefix owl: <http://www.w3.org/2002/07/owl#> .
+    @prefix qur: <http://quranontology.com/Resource/> .
+    @prefix wiki: <https://www.wikidata.org/wiki/> .
+
+:Ant a :Animal .
+
+:Ape a :Animal .
+
+:Bee a :Animal .
+
+:Bird a :Animal .
+
+:Butterfly a :Animal .
+
+:Calf a :Animal .
+
+:Camel a :Animal .
+
+:Lion a :Animal .
+
+:Wolf a :Animal .
+
+:Cow a :Animal .
+
+:Sheep a :Animal .
+
+:Crow a :Animal .
+
+:Dog a :Animal .
+
+:Donkey a :Animal .
+
+:Elephant a :Animal .
+
+:Fish a :Animal .
+
+:Fly a :Animal .
+
+:Frog a :Animal .
+
+:Goat a :Animal .
+
+:Hoopoe a :Animal .
+
+:Horse a :Animal .
+
+:Locust a :Animal .
+
+:Louse a :Animal .
+
+:Mosquito a :Animal .
+
+:Mule a :Animal .
+
+:Pig a :Animal .
+
+:Quail a :Animal .
+
+:Snake a :Animal .
+
+:Spider a :Animal .
