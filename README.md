@@ -33,3 +33,14 @@ This script includes sample code to demonstrate the workflow of the NER and  Had
 ## Contributors
 1. Nigar Azhar Butt
 2. Amna Binte Kamran
+
+## References
+Kamran, A. B., Abro, B., & Basharat, A. (2023). SemanticHadith: An ontology-driven knowledge graph for the hadith corpus. Journal of Web Semantics, 78, 100797.
+
+Salah, R. E., & Zakaria, L. Q. B. (2018, March). Building the classical Arabic named entity recognition corpus (CANERCorpus). In 2018 Fourth International Conference on Information Retrieval and Knowledge Management (CAMP) (pp. 1-8). IEEE.
+
+## Contact
+
+Contact nigar.azhar@isb.nu.edu.pk or amna.kamran@nu.edu.pk or amna.basharat@nu.edu.pk
+
+Feel free to contact us in case of any confusions.
