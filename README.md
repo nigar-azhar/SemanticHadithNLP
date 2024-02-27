@@ -32,7 +32,7 @@ This script includes sample code to demonstrate the workflow of the NER and  Had
 
 ## Contributors
 1. Nigar Azhar Butt
-2. Amna Binte Kamran
+2. [Amna Binte Kamran](https://scholar.google.com/citations?user=RJoQH-IAAAAJ&hl=en&oi=ao)
 
 ## References
 Kamran, A. B., Abro, B., & Basharat, A. (2023). SemanticHadith: An ontology-driven knowledge graph for the hadith corpus. Journal of Web Semantics, 78, 100797.
