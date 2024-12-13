@@ -1,430 +1,183 @@
 import pandas as pd
 from tqdm import tqdm
 
-def get_ttl_string(hid, list1, ttl_strings, objprop="containsMentionOf"):
-    if len(list1) > 0:
-        #print(hid, list1)
-        if None in list1:
-            list1.remove(None)
+# Utility functions
+def append_ttl_string(hid, items, ttl_strings, objprop="containsMentionOf"):
+    """
+    Appends TTL strings for a list of items to the TTL collection.
 
-        if len(list1) > 0:
-            comma_separated_string = ', :'.join(list1)
-            # Create a TTL string for the row
+    Args:
+        hid (str): Hadith ID.
+        items (list): List of items to include in the TTL string.
+        ttl_strings (list): Existing TTL strings to append to.
+        objprop (str): Object property for the TTL relation.
+
+    Returns:
+        list: Updated TTL strings.
+    """
+    if items:
+        items = [item for item in items if item is not None]  # Remove None values
+        if items:
+            comma_separated_string = ', :'.join(items)
             ttl = f":{hid} :{objprop} :{comma_separated_string} ."
-            # Append the TTL string to the list
             ttl_strings.append(ttl)
-
     return ttl_strings
 
 
-def get_ttl_al_string(hid, heavenlist, helllist, ttl_strings):
-    if len(heavenlist) > 0:
-        #print(hid, list1)
-        #comma_separated_string = ', '.join(list1)
-        # Create a TTL string for the row
-        ttl = f":{hid} :discussesTopic :Heaven ."
-        # Append the TTL string to the list
-        ttl_strings.append(ttl)
+def append_afterlife_ttl(hid, heavenlist, helllist, ttl_strings):
+    """
+    Appends TTL strings for Heaven and Hell mentions.
 
-    if len(helllist) > 0:
-        #print(hid, list1)
-        #comma_separated_string = ', '.join(list1)
-        # Create a TTL string for the row
-        ttl = f":{hid} :discussesTopic :Hell ."
-        # Append the TTL string to the list
-        ttl_strings.append(ttl)
+    Args:
+        hid (str): Hadith ID.
+        heavenlist (list): List of Heaven mentions.
+        helllist (list): List of Hell mentions.
+        ttl_strings (list): Existing TTL strings to append to.
 
+    Returns:
+        list: Updated TTL strings.
+    """
+    if heavenlist:
+        ttl_strings.append(f":{hid} :discussesTopic :Heaven .")
+    if helllist:
+        ttl_strings.append(f":{hid} :discussesTopic :Hell .")
     return ttl_strings
 
 
-def get_ayat_ttl_string(hid, ayat_list, ttl_strings):
-    if len(ayat_list) > 0:
-        # Convert each tuple to the desired string format
-        string_list = [':CH{:03d}_V{:03d}'.format(chapter, verse) for chapter, verse in ayat_list]
+def append_ayat_ttl(hid, ayat_list, ttl_strings):
+    """
+    Appends TTL strings for Quranic ayat mentions.
 
-        #print(hid, list1)
-        comma_separated_string = ', '.join(string_list)
-        # Create a TTL string for the row
-        ttl = f":{hid} :containsMentionOfVerse {comma_separated_string} ."
-        # Append the TTL string to the list
-        ttl_strings.append(ttl)
+    Args:
+        hid (str): Hadith ID.
+        ayat_list (list): List of Quranic ayat tuples (chapter, verse).
+        ttl_strings (list): Existing TTL strings to append to.
 
+    Returns:
+        list: Updated TTL strings.
+    """
+    if ayat_list:
+        formatted_ayat = [f":CH{chapter:03d}_V{verse:03d}" for chapter, verse in ayat_list]
+        comma_separated_string = ', '.join(formatted_ayat)
+        ttl_strings.append(f":{hid} :containsMentionOfVerse {comma_separated_string} .")
     return ttl_strings
 
-# Custom function to convert Eastern Arabic numerals to integers
+
 def arabic_to_int(arabic_numeral):
+    """
+    Converts Eastern Arabic numerals to integers.
+
+    Args:
+        arabic_numeral (str): The Arabic numeral string.
+
+    Returns:
+        int: The integer equivalent.
+    """
     numeral_dict = {'۰': 0, '۱': 1, '۲': 2, '۳': 3, '۴': 4, '۵': 5, '۶': 6, '۷': 7, '۸': 8, '۹': 9}
-    #print(arabic_numeral)
-    if 'م' in arabic_numeral or 'b'  in arabic_numeral or 'm' in arabic_numeral:
+    if any(ch in arabic_numeral for ch in ['م', 'b', 'm']):
         return -1
-    # elif arabic_numeral == '~32oo~':
-    #     return 3200
-
-    result = 0
     arabic_numeral = arabic_numeral[1:-1]
-    for numeral in arabic_numeral:
-        result = result * 10 + numeral_dict[numeral]
+    return int(''.join(str(numeral_dict[ch]) for ch in arabic_numeral))
 
-    return result
 
-def get_similar_hd_ttl_string(hid, row, ttl_strings, label):
+def append_similarity_ttl(hid, row, ttl_strings, label):
+    """
+    Appends TTL strings for similar hadith mentions.
 
+    Args:
+        hid (str): Hadith ID.
+        row (pd.Series): Row containing similarity data.
+        ttl_strings (list): Existing TTL strings to append to.
+        label (str): Label prefix for Hadith IDs.
+
+    Returns:
+        list: Updated TTL strings.
+    """
     strong = eval(row['ar_0.9'])
-    similar = eval(row['ar_0.8'])
-    similar.extend(eval(row['ar_0.7']))
-    similar.extend(eval(row['ar_rest']))
+    similar = eval(row['ar_0.8']) + eval(row['ar_0.7']) + eval(row['ar_rest'])
 
-    if len(strong) > 0:
+    if strong:
+        strong_ids = [f":{label}-HD{hnum:04d}" for hnum in strong if f":{label}-HD{hnum:04d}" != hid]
+        if strong_ids:
+            ttl_strings.append(f":{hid} :isStronglySimilar {', '.join(strong_ids)} .")
 
-        # Convert each tuple to the desired string format
-        string_list = [f":{label}-HD{hnum:04d}".format(label, hnum) for hnum in strong]
-
-        #print(string_list, hid)
-        if hid in string_list:
-            string_list.remove(hid)
-        #string_list.remove(hid)
-
-        if len(string_list) > 0:
-            #print(hid, list1)
-            comma_separated_string = ', '.join(string_list)
-            # Create a TTL string for the row
-            ttl = f":{hid} :isStronglySimilar {comma_separated_string} ."
-            # Append the TTL string to the list
-            ttl_strings.append(ttl)
-
-    if len(similar) > 0:
-        # Convert each tuple to the desired string format
-        string_list = [f":{label}-HD{hnum:04d}".format(label, hnum) for hnum in similar]
-
-        #print(hid, list1)
-        comma_separated_string = ', '.join(string_list)
-        # Create a TTL string for the row
-        ttl = f":{hid} :isSimilar {comma_separated_string} ."
-        # Append the TTL string to the list
-        ttl_strings.append(ttl)
+    if similar:
+        similar_ids = [f":{label}-HD{hnum:04d}" for hnum in similar]
+        ttl_strings.append(f":{hid} :isSimilar {', '.join(similar_ids)} .")
 
     return ttl_strings
 
-def turtlfy_collection(collection="sb",save_path="results/ttl"):
-    label = "SB"
-    if collection == "sb":
-        label = "SB"
-    elif collection == "maj":
-        label = "IM"
-    elif collection == "ms":
-        label = "SM"
-    elif collection == "nis":
-        label = "SN"
-    elif collection == "tir":
-        label = "JT"
-    elif collection == "sad":
-        label = "SD"
+# Main turtling functions
+def turtlfy_collection(collection="sb", save_path="results/ttl"):
+    """
+    Converts a Hadith collection into TTL format.
 
-    # Read the DataFrame from the file
-    df = pd.read_excel("results/"+collection+"/identified_entities/locations.xlsx")  # Change the file path as needed
+    Args:
+        collection (str): The collection name (e.g., "sb", "maj").
+        save_path (str): Path to save the TTL file.
+
+    Returns:
+        None
+    """
+    label_mapping = {"sb": "SB", "maj": "IM", "ms": "SM", "nis": "SN", "tir": "JT", "sad": "SD"}
+    label = label_mapping.get(collection, "SB")
+    df = pd.read_excel(f"results/{collection}/identified_entities/locations.xlsx")
 
     ttl_strings = []
-
-    # Add prefixes
     prefixes = """@base <http://semantichadith.com/ontology> .
-        @prefix : <http://www.semantichadith.com/ontology/> .
-        @prefix owl: <http://www.w3.org/2002/07/owl#> .
-        @prefix qur: <http://quranontology.com/Resource/> .
-        @prefix wiki: <https://www.wikidata.org/wiki/> ."""
-
+@prefix : <http://www.semantichadith.com/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qur: <http://quranontology.com/Resource/> .
+@prefix wiki: <https://www.wikidata.org/wiki/> ."""
     ttl_strings.append(prefixes)
 
-    df_angels = pd.read_excel("results/"+collection+"/identified_entities/angels.xlsx")
-    df_prophets = pd.read_excel("results/"+collection+"/identified_entities/prophets.xlsx")
-    df_clans = pd.read_excel("results/"+collection+"/identified_entities/clans.xlsx")
-    df_crimes = pd.read_excel("results/"+collection+"/identified_entities/crimes.xlsx")
-    df_holybooks = pd.read_excel("results/"+collection+"/identified_entities/holybooks.xlsx")
-    df_afterlife = pd.read_excel("results/"+collection+"/identified_entities/afterlife.xlsx")
-    df_poi = pd.read_excel("results/"+collection+"/identified_entities/pillarsofislam.xlsx")
+    additional_files = {
+        "angels": "angels.xlsx",
+        "prophets": "prophets.xlsx",
+        "clans": "clans.xlsx",
+        "crimes": "crimes.xlsx",
+        "holybooks": "holybooks.xlsx",
+        "afterlife": "afterlife.xlsx",
+        "pillarsofislam": "pillarsofislam.xlsx",
+        "caliphs": "caliphs.xlsx",
+        "plants": "plants.xlsx",
+        "animals": "animals.xlsx",
+        "concepts": "concepts.xlsx",
+        "ayat": "ayat.xlsx",
+        "similarity": "mukarrat_similarity.csv"
+    }
 
-    if label == "SB":
-        df_caliphs = pd.read_excel("results/" + collection + "/identified_entities/caliphs.xlsx")
+    # Load additional data
+    additional_data = {key: pd.read_excel(f"results/{collection}/identified_entities/{file}")
+                       for key, file in additional_files.items() if file.endswith('.xlsx')}
+    additional_data["similarity"] = pd.read_csv(f"results/{collection}/mukarrat_similarity.csv")
 
-        df_ayat = pd.read_excel("results/"+collection+"/identified_entities/ayat.xlsx")
-
-        df_concepts = pd.read_excel("results/"+collection+"/identified_entities/concepts.xlsx")
-
-        df_plants = pd.read_excel("results/"+collection+"/identified_entities/plants.xlsx")
-        df_animals = pd.read_excel("results/"+collection+"/identified_entities/animals.xlsx")
-        df_sim = pd.read_csv("results/"+collection+"/mukarrat_similarity.csv")
-
-    #index = 0
-    with tqdm(total=len(df), desc=f'Generating turtle') as pbar:
-
-        # Iterate over each row in the DataFrame
+    with tqdm(total=len(df), desc=f"Generating TTL for {label}") as pbar:
         for index, row in df.iterrows():
-
-            # Extract the prophet name and additional parameters
             hnum = row['hadith_number']
             if label == "JT":
                 hnum = arabic_to_int(hnum)
                 if hnum == -1:
                     continue
-            hid = label + "-HD" + f"{hnum:04d}"
+            hid = f"{label}-HD{hnum:04d}"
 
             location = eval(row['locations'])
-            ttl_strings = get_ttl_string(hid, location, ttl_strings)
-            # if len(location) > 0:
-            #     #print(hid,location)
-            #     comma_separated_string = ', '.join(location)
-            #     # Create a TTL string for the row
-            #     ttl = f":{hid} :containsMentionOf :{comma_separated_string} ."
-            #     # Append the TTL string to the list
-            #     ttl_strings.append(ttl)
+            ttl_strings = append_ttl_string(hid, location, ttl_strings)
 
-            angels = eval(df_angels.iloc[index, 1])
-            ttl_strings = get_ttl_string(hid, angels, ttl_strings)
+            for key, data in additional_data.items():
+                if key in ["similarity"]:
+                    ttl_strings = append_similarity_ttl(hid, data.iloc[index], ttl_strings, label)
+                else:
+                    entities = eval(data.iloc[index, 1])
+                    ttl_strings = append_ttl_string(hid, entities, ttl_strings, objprop="discussesTopic" if key in ["crimes", "concepts"] else "containsMentionOf")
 
-
-            prophets = eval(df_prophets.iloc[index, 1])
-            ttl_strings = get_ttl_string(hid, prophets, ttl_strings)
-
-
-            crimes = eval(df_crimes.iloc[index, 1])
-            ttl_strings = get_ttl_string(hid, crimes, ttl_strings, objprop="discussesTopic")
-
-            clans = eval(df_clans.iloc[index, 1])
-            ttl_strings = get_ttl_string(hid, clans, ttl_strings)
-
-            hbooks = eval(df_holybooks.iloc[index, 1])
-            ttl_strings = get_ttl_string(hid, hbooks, ttl_strings)
-
-            pois = eval(df_poi.iloc[index, 1])
-            ttl_strings = get_ttl_string(hid, pois, ttl_strings, objprop="discussesTopic")
-
-            hvn = eval(df_afterlife.iloc[index, 1])
-            hl = eval(df_afterlife.iloc[index, 2])
-            ttl_strings = get_ttl_al_string(hid, hvn, hl, ttl_strings)
-
-            if label == "SB":
-                caliphs = eval(df_caliphs.iloc[index, 1])
-                ttl_strings = get_ttl_string(hid, caliphs, ttl_strings)
-
-                plants = eval(df_plants.iloc[index, 1])
-                ttl_strings = get_ttl_string(hid, plants, ttl_strings)
-
-                animals = eval(df_animals.iloc[index, 1])
-                ttl_strings = get_ttl_string(hid, animals, ttl_strings)
-
-                concepts = eval(df_concepts.iloc[index, 1])
-                ttl_strings = get_ttl_string(hid, concepts, ttl_strings, objprop="discussesTopic")
-
-
-                ayts = eval(df_ayat.iloc[index, 1])
-                ttl_strings = get_ayat_ttl_string(hid, ayts, ttl_strings)
-
-
-                hds = df_sim.iloc[index]
-                ttl_strings = get_similar_hd_ttl_string(hid, hds, ttl_strings,label)
-
-
-            # if len(angels) > 0:
-            #     print(hid,angels)
-            #     comma_separated_string = ', '.join(angels)
-            #     # Create a TTL string for the row
-            #     ttl = f":{hid} :containsMentionOf :{comma_separated_string} ."
-            #     # Append the TTL string to the list
-            #     ttl_strings.append(ttl)
-
-
-
-            index += 1
+            ttl_strings = append_afterlife_ttl(hid, eval(additional_data["afterlife"].iloc[index, 1]), eval(additional_data["afterlife"].iloc[index, 2]), ttl_strings)
+            ttl_strings = append_ayat_ttl(hid, eval(additional_data["ayat"].iloc[index, 1]), ttl_strings)
 
             pbar.update(1)
 
-        # Write all TTL strings to a single file
-    with open(save_path + "/" + label + '.ttl', 'w') as file:
+    with open(f"{save_path}/{label}.ttl", 'w') as file:
         file.write('\n\n'.join(ttl_strings))
 
-    #print('\n\n'.join(ttl_strings))
 
-
-def tutlfy_csv(class_name='Animal',path="dictionaries/animals.csv",save_path="results"):
-    #import pandas as pd
-
-    # Read the CSV file
-    df = pd.read_csv(path)
-
-    ttl_strings = []
-
-    # Add prefixes
-    prefixes = """@base <http://semantichadith.com/ontology> .
-    @prefix : <http://www.semantichadith.com/ontology/> .
-    @prefix owl: <http://www.w3.org/2002/07/owl#> .
-    @prefix qur: <http://quranontology.com/Resource/> .
-    @prefix wiki: <https://www.wikidata.org/wiki/> ."""
-
-    ttl_strings.append(prefixes)
-
-    # Iterate over each row
-    for index, row in df.iterrows():
-        # Get the ID value
-        animal_id = row['ID']
-
-        # Create a TTL string for the row
-        ttl = f":{animal_id} a :{class_name} ."
-
-        # Append the TTL string to the list
-        ttl_strings.append(ttl)
-
-    # Write all TTL strings to a single file
-    with open(save_path+"/"+class_name+'s.ttl', 'w') as file:
-        file.write('\n\n'.join(ttl_strings))
-
-    print('\n\n'.join(ttl_strings))
-        # # Write the TTL to a file
-        # with open(f'{animal_id}.ttl', 'w') as file:
-        #     file.write(ttl)
-
-
-
-def turtlfy_mappping_qur_to_id(save_path="results/ttl"):
-    # Read the DataFrame from the file
-    df = pd.read_excel("mappings/qur-to-hadith.xlsx", sheet_name=1)
-    ttl_strings = []
-
-    # Add prefixes
-    prefixes = """@base <http://semantichadith.com/ontology> .
-            @prefix : <http://www.semantichadith.com/ontology/> .
-            @prefix owl: <http://www.w3.org/2002/07/owl#> .
-            @prefix qur: <http://quranontology.com/Resource/> .
-            @prefix wiki: <https://www.wikidata.org/wiki/> ."""
-
-    ttl_strings.append(prefixes)
-
-    for index, row in df.iterrows():
-        # Get the ID value
-        id = row['ID']
-        topic = df.iloc[index, 0].split("/")[-1]
-
-        # Create a TTL string for the row
-        ttl = f":{id} rdfs:seeAlso qur:{topic} ."
-
-        # Append the TTL string to the list
-        ttl_strings.append(ttl)
-
-    # Write all TTL strings to a single file
-    with open(save_path + "/seeAlso-qur.ttl", 'w') as file:
-        file.write('\n\n'.join(ttl_strings))
-
-    print('\n\n'.join(ttl_strings))
-
-def turtlfy_mappping_book_to_id(save_path="results/ttl"):
-    # Read the DataFrame from the file
-    df = pd.read_excel("mappings/qur-to-hadith.xlsx", sheet_name=0)
-    ttl_strings = []
-
-    # Add prefixes
-    prefixes = """@base <http://semantichadith.com/ontology> .
-            @prefix : <http://www.semantichadith.com/ontology/> .
-            @prefix owl: <http://www.w3.org/2002/07/owl#> .
-            @prefix qur: <http://quranontology.com/Resource/> .
-            @prefix wiki: <https://www.wikidata.org/wiki/> ."""
-
-    ttl_strings.append(prefixes)
-    print(df.keys())
-    for index, row in df.iterrows():
-        # Get the ID value
-        id = row['mentionsID']
-        #topic = df.iloc[index, 0].split("/")[-1]
-        # print(row['Hadith'])
-        rang = row['Hadith'].split('-')
-
-
-        istopic = row['isTopic']
-
-        hds = []
-
-        start =int(rang[0])
-        end =int(rang[1])
-        for hnum in range(start, end+1):
-            hid = ":SB-HD" + f"{hnum:04d}"
-            hds.append(hid)
-
-        comma_separated_string = ', '.join(hds)
-        # Create a TTL string for the row
-
-        if pd.isna(istopic):# is None:
-            ttl = f":{id} :mentionedIn {comma_separated_string} ."
-        else:
-            ttl = f":{id} :discussedIn {comma_separated_string} ."
-
-        # Append the TTL string to the list
-        ttl_strings.append(ttl)
-
-    # Write all TTL strings to a single file
-    with open(save_path + "/mentionedIn.ttl", 'w') as file:
-        file.write('\n\n'.join(ttl_strings))
-
-    print('\n\n'.join(ttl_strings))
-
-
-def turtlfy_mapping_hadith_book_topic_qur(save_path="results/ttl"):
-    # Read the DataFrame from the file
-    df = pd.read_excel("mappings/qur-topics-bukhari-books.xlsx")
-    ttl_strings = []
-
-    # Add prefixes
-    prefixes = """@base <http://semantichadith.com/ontology> .
-                @prefix : <http://www.semantichadith.com/ontology/> .
-                @prefix owl: <http://www.w3.org/2002/07/owl#> .
-                @prefix qur: <http://quranontology.com/Resource/> .
-                @prefix wiki: <https://www.wikidata.org/wiki/> ."""
-
-    ttl_strings.append(prefixes)
-    print(df.keys())
-    for index, row in df.iterrows():
-
-
-        # Get the ID value
-        id = row['instance-IDs']
-        istopic = row['istopic']
-        topic = df.iloc[index, 0].split("/")[-1]
-
-        # Create a TTL string for the row
-        ttl = f":{id} rdfs:seeAlso qur:{topic} ."
-
-        ttl_strings.append(ttl)
-
-        rngs = row['hadith-numbers'].split(',')
-        hds = []
-        for rng in rngs:
-
-
-            rang = rng.split("-")
-
-            start = int(rang[0])
-            end = int(rang[1])
-            for hnum in range(start, end + 1):
-                hid = ":SB-HD" + f"{hnum:04d}"
-                hds.append(hid)
-
-
-        comma_separated_string = ', '.join(hds)
-
-        if pd.isna(istopic):# is None:
-            ttl = f":{id} :discussedIn {comma_separated_string} ."
-        else:
-            ttl = f":{id} :mentionedIn {comma_separated_string} ."
-
-        # Append the TTL string to the list
-        ttl_strings.append(ttl)
-
-    # Write all TTL strings to a single file
-    with open(save_path + "/booktotopic.ttl", 'w') as file:
-        file.write('\n\n'.join(ttl_strings))
-
-    print('\n\n'.join(ttl_strings))
-
-
-#tutlfy_csv(class_name='Plant',path="dictionaries/plants.csv")
-#turtlfy_collection()
-
-#turtlfy_mappping_qur_to_id()
-#turtlfy_mappping_book_to_id()
-turtlfy_mapping_hadith_book_topic_qur()
+#turtlfy_mapping_hadith_book_topic_qur()
