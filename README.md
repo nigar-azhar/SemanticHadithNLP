@@ -58,10 +58,13 @@ SemanticHadithNLP/
 │   ├── qur-topics-bukhari-books.xlsx  # Quran topics mapped to Bukhari chapters
 │
 ├── results/                   # Outputs from NER, similarity analysis, and training
-│   ├── identified_entities/   # Extracted entities from NER
-│   ├── similarity_measures/   # Cosine similarity matrices
+|   ├── sb/                    # Results specific to Sahih Bukhari
+│       ├── identified_entities/   # Extracted entities from NER
+│       ├── similarity_measures/   # Cosine similarity matrices
+|   ├── sm/                    # Results specific to Sahih Muslim
+|   ....                       # Results for other collections
 │   ├── ttl_files/             # Turtle files for knowledge graph integration
-│   ├── sb/                    # Results specific to Sahih Bukhari
+│                   
 │
 ├── trained_models/            # Pretrained or fine-tuned models
 │   ├── transformer_models/    # Arabic/English transformer models
@@ -83,7 +86,6 @@ SemanticHadithNLP/
 ├── holybooks.py               # Script for identifying mentions of holy books
 ├── locations.py               # Script for extracting locations mentioned in Hadith
 ├── main.py                    # Main script demonstrating full pipeline usage
-├── ner_model_finetuning.py    # Fine-tuning SpaCy NER models
 ├── NERModelLoader.py          # Utility script for loading NER models
 ├── persons.py                 # Extracts mentions of persons
 ├── pillarsofislam.py          # Identifies mentions of the five pillars of Islam
@@ -94,7 +96,6 @@ SemanticHadithNLP/
 ├── utility.py                 # Utility functions for text preprocessing and model operations
 ├── visualize_training.py      # Script for visualizing training metrics
 ├── requirements.txt           # Python dependencies
-└── README.md                  # Project documentation
 ```
 
 ## Usage
@@ -138,17 +139,17 @@ To train a custom NER model, edit and execute Training_NER_camelbert.py.
 
 For each Hadith collection, the input data is expected to be in the following format with specific column headers:
 
-| **hadith_id** | **~hadith_number_roman~** | **~arabic_t~**                                                                                                                                                                                                                                                                                                                                                                                       | **~Tarabic~**                                                                                       | **~english~**                                                                                                                                                                                                         |
+| **hadith_id** | **hadith_number_roman** | **arabic_t**                                                                                                                                                                                                                                                                                                                                                                                       | **Tarabic**                                                                                       | **english**                                                                                                                                                                                                         |
 |---------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 2             | 1                         | ~حَدَّثَنَا الْحُمَيْدِيُّ عَبْدُ اللَّهِ بْنُ الزُّبَيْرِ ، قَالَ : حَدَّثَنَا سُفْيَانُ ، قَالَ : حَدَّثَنَا يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ...~                                                                                                                                                                                                                       | ~إنما الأعمال بالنيات...~                                                                      | ~Narrated 'Umar bin Al-Khattab: I heard Allah's Apostle saying, "The reward of deeds depends upon the intentions..."~                                                                                          |
-| 3             | 2                         | ~حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ ، قَالَ : أَخْبَرَنَا مَالِكٌ ، عَنْ هِشَامِ بْنِ عُرْوَةَ ، عَنْ أَبِيهِ ، عَنْ عَائِشَةَ أُمِّ الْمُؤْمِنِينَ...~                                                                                                                                                                                                                         | ~أحيانا يأتيني مثل صلصلة الجرس...~                                                             | ~Narrated 'Aisha: (the mother of the faithful believers) Al-Harith bin Hisham asked Allah's Apostle "O Allah's Apostle! How is the Divine Inspiration revealed to you?"~                                       |
+| 2             | 1                         |حَدَّثَنَا الْحُمَيْدِيُّ عَبْدُ اللَّهِ بْنُ الزُّبَيْرِ ، قَالَ : حَدَّثَنَا سُفْيَانُ ، قَالَ : حَدَّثَنَا يَحْيَى بْنُ سَعِيدٍ الْأَنْصَارِيُّ...                                                                                                                                                                                                                       | إنما الأعمال بالنيات...                                                                      | Narrated 'Umar bin Al-Khattab: I heard Allah's Apostle saying, "The reward of deeds depends upon the intentions..."                                                                                          |
+| 3             | 2                         | حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ ، قَالَ : أَخْبَرَنَا مَالِكٌ ، عَنْ هِشَامِ بْنِ عُرْوَةَ ، عَنْ أَبِيهِ ، عَنْ عَائِشَةَ أُمِّ الْمُؤْمِنِينَ...                                                                                                                                                                                                                         | أحيانا يأتيني مثل صلصلة الجرس...                                                             | Narrated 'Aisha: (the mother of the faithful believers) Al-Harith bin Hisham asked Allah's Apostle "O Allah's Apostle! How is the Divine Inspiration revealed to you?"                                       |
 
 ### **Column Description**
-- **hadith_id:** The unique identifier for the Hadith in the dataset.
-- **~hadith_number_roman~:** The Hadith number in Roman numerals or standardized format.
-- **~arabic_t~:** The original Arabic text with full punctuation.
-- **~Tarabic~:** The stripped and cleaned Arabic text without punctuation or diacritics.
-- **~english~:** The English translation of the Hadith.
+- hadith_id: The unique identifier for the Hadith in the dataset.
+- hadith_number_roman: The Hadith number in Roman numerals or standardized format.
+- arabic_t: The original Arabic text with full punctuation.
+- Tarabic: The stripped and cleaned Arabic text without punctuation or diacritics.
+- english: The English translation of the Hadith.
 
 ---
 
