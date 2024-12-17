@@ -1,0 +1,142 @@
+[
+    {
+        "epoch": 1,
+        "loss": 17280.69090721158,
+        "accuracy": 0.9847973721862846,
+        "f1_score": 0.9508438118061471,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.98      0.98      0.98      6998\n       ANGEL       0.86      0.81      0.83        31\n        CLAN       0.66      0.91      0.76       172\n       CRIME       0.00      0.00      0.00       271\n        DATE       0.95      0.63      0.76       323\n         DAY       0.00      0.00      0.00        40\n       HBOOK       0.83      0.89      0.86       152\n        HELL       0.84      0.84      0.84       700\n         LOC       0.79      0.68      0.73       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.85      0.32      0.46       631\n        PARA       0.94      0.94      0.94       720\n        PERS       0.98      0.96      0.97     20272\n     PROPHET       0.98      0.97      0.97      4333\n        RLIG       1.00      0.92      0.96       114\n        TIME       0.00      0.00      0.00         5\n\n   micro avg       0.97      0.93      0.95     35267\n   macro avg       0.73      0.68      0.69     35267\nweighted avg       0.96      0.93      0.94     35267\n"
+    },
+    {
+        "epoch": 2,
+        "loss": 5507.795937146101,
+        "accuracy": 0.9869012353142695,
+        "f1_score": 0.9587225847250568,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.98      0.97      0.98      6998\n       ANGEL       1.00      0.81      0.89        31\n        CLAN       0.87      0.91      0.89       172\n       CRIME       0.82      0.26      0.39       271\n        DATE       0.97      0.72      0.83       323\n         DAY       1.00      0.30      0.46        40\n       HBOOK       0.94      1.00      0.97       152\n        HELL       0.91      0.94      0.93       700\n         LOC       0.83      0.73      0.77       485\n       MONTH       0.91      1.00      0.95        20\n       NatOb       0.97      0.31      0.47       631\n        PARA       1.00      0.96      0.98       720\n        PERS       0.97      0.97      0.97     20272\n     PROPHET       0.97      0.96      0.97      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.00      0.00      0.00         5\n\n   micro avg       0.97      0.95      0.96     35267\n   macro avg       0.88      0.74      0.78     35267\nweighted avg       0.97      0.95      0.95     35267\n"
+    },
+    {
+        "epoch": 3,
+        "loss": 4126.1908088052705,
+        "accuracy": 0.9880942304979545,
+        "f1_score": 0.9622925229495753,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.98      0.98      0.98      6998\n       ANGEL       1.00      0.97      0.98        31\n        CLAN       0.84      0.92      0.88       172\n       CRIME       0.84      0.30      0.44       271\n        DATE       0.85      0.76      0.81       323\n         DAY       1.00      0.45      0.62        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.88      0.96      0.92       700\n         LOC       0.89      0.77      0.83       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.79      0.54      0.64       631\n        PARA       0.90      0.97      0.94       720\n        PERS       0.98      0.97      0.98     20272\n     PROPHET       0.99      0.96      0.98      4333\n        RLIG       0.81      1.00      0.90       114\n        TIME       0.00      0.00      0.00         5\n\n   micro avg       0.97      0.95      0.96     35267\n   macro avg       0.86      0.78      0.80     35267\nweighted avg       0.97      0.95      0.96     35267\n"
+    },
+    {
+        "epoch": 4,
+        "loss": 3385.433891351595,
+        "accuracy": 0.9886463938093223,
+        "f1_score": 0.964611036995596,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.99      6998\n       ANGEL       1.00      0.81      0.89        31\n        CLAN       0.96      0.91      0.93       172\n       CRIME       0.83      0.28      0.42       271\n        DATE       0.94      0.72      0.82       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.91      0.96      0.93       700\n         LOC       0.83      0.80      0.81       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.93      0.46      0.61       631\n        PARA       1.00      0.96      0.98       720\n        PERS       0.98      0.97      0.97     20272\n     PROPHET       0.99      0.97      0.98      4333\n        RLIG       0.96      1.00      0.98       114\n        TIME       0.00      0.00      0.00         5\n\n   micro avg       0.98      0.95      0.96     35267\n   macro avg       0.89      0.78      0.82     35267\nweighted avg       0.98      0.95      0.96     35267\n"
+    },
+    {
+        "epoch": 5,
+        "loss": 2825.5861801128963,
+        "accuracy": 0.9893436511295166,
+        "f1_score": 0.9675847639792495,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.98      6998\n       ANGEL       1.00      1.00      1.00        31\n        CLAN       0.94      0.89      0.91       172\n       CRIME       0.79      0.38      0.51       271\n        DATE       0.94      0.73      0.82       323\n         DAY       1.00      0.45      0.62        40\n       HBOOK       0.94      1.00      0.97       152\n        HELL       0.96      0.95      0.95       700\n         LOC       0.90      0.83      0.87       485\n       MONTH       0.91      1.00      0.95        20\n       NatOb       0.82      0.54      0.65       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.98      0.98     20272\n     PROPHET       0.99      0.97      0.98      4333\n        RLIG       0.95      1.00      0.97       114\n        TIME       0.50      0.20      0.29         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.91      0.80      0.84     35267\nweighted avg       0.98      0.96      0.97     35267\n"
+    },
+    {
+        "epoch": 6,
+        "loss": 2513.803196010906,
+        "accuracy": 0.9880136227152732,
+        "f1_score": 0.9630821820253526,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.98      6998\n       ANGEL       0.84      1.00      0.91        31\n        CLAN       0.91      0.94      0.93       172\n       CRIME       0.86      0.35      0.50       271\n        DATE       0.84      0.77      0.80       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.94      1.00      0.97       152\n        HELL       0.87      0.96      0.91       700\n         LOC       0.83      0.83      0.83       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.78      0.52      0.62       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.97      0.98      0.97     20272\n     PROPHET       0.97      0.97      0.97      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.13      0.80      0.22         5\n\n   micro avg       0.97      0.96      0.96     35267\n   macro avg       0.87      0.86      0.84     35267\nweighted avg       0.97      0.96      0.96     35267\n"
+    },
+    {
+        "epoch": 7,
+        "loss": 2314.238274518495,
+        "accuracy": 0.9894161981339298,
+        "f1_score": 0.9680344398518286,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.99      6998\n       ANGEL       0.69      1.00      0.82        31\n        CLAN       0.89      0.94      0.91       172\n       CRIME       0.82      0.41      0.54       271\n        DATE       0.86      0.76      0.81       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.96      0.94      0.95       700\n         LOC       0.80      0.83      0.81       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.73      0.54      0.62       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.99      0.97      0.98     20272\n     PROPHET       0.98      0.98      0.98      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.25      0.20      0.22         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.87      0.82      0.83     35267\nweighted avg       0.98      0.96      0.97     35267\n"
+    },
+    {
+        "epoch": 8,
+        "loss": 2088.2048615030617,
+        "accuracy": 0.9889244906595732,
+        "f1_score": 0.9657655073503048,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.98      6998\n       ANGEL       1.00      1.00      1.00        31\n        CLAN       0.89      0.87      0.88       172\n       CRIME       0.84      0.38      0.52       271\n        DATE       0.78      0.75      0.76       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.94      1.00      0.97       152\n        HELL       0.96      0.80      0.87       700\n         LOC       0.77      0.86      0.81       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.85      0.51      0.64       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.98      0.98     20272\n     PROPHET       0.99      0.97      0.98      4333\n        RLIG       0.92      1.00      0.96       114\n        TIME       0.36      0.80      0.50         5\n\n   micro avg       0.98      0.95      0.97     35267\n   macro avg       0.89      0.84      0.85     35267\nweighted avg       0.98      0.95      0.96     35267\n"
+    },
+    {
+        "epoch": 9,
+        "loss": 1970.1711730054003,
+        "accuracy": 0.9894565020252706,
+        "f1_score": 0.9681702176468902,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.98      6998\n       ANGEL       0.83      0.97      0.90        31\n        CLAN       0.97      0.91      0.94       172\n       CRIME       0.78      0.41      0.53       271\n        DATE       0.95      0.75      0.84       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.94      0.96      0.95       700\n         LOC       0.84      0.81      0.83       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.86      0.49      0.63       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.98      0.98     20272\n     PROPHET       0.99      0.97      0.98      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.57      0.80      0.67         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.92      0.85      0.87     35267\nweighted avg       0.98      0.96      0.97     35267\n"
+    },
+    {
+        "epoch": 10,
+        "loss": 1770.591139578616,
+        "accuracy": 0.9895814440884267,
+        "f1_score": 0.9681366228258689,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.99      6998\n       ANGEL       1.00      1.00      1.00        31\n        CLAN       0.94      0.89      0.92       172\n       CRIME       1.00      0.34      0.51       271\n        DATE       0.92      0.72      0.81       323\n         DAY       0.89      0.60      0.72        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.96      0.96      0.96       700\n         LOC       0.75      0.83      0.79       485\n       MONTH       0.95      1.00      0.98        20\n       NatOb       0.78      0.54      0.64       631\n        PARA       1.00      0.99      0.99       720\n        PERS       0.99      0.97      0.98     20272\n     PROPHET       0.98      0.99      0.98      4333\n        RLIG       0.91      1.00      0.95       114\n        TIME       0.31      0.80      0.44         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.90      0.85      0.85     35267\nweighted avg       0.98      0.96      0.97     35267\n"
+    },
+    {
+        "epoch": 11,
+        "loss": 1672.4413467378627,
+        "accuracy": 0.9896177175906333,
+        "f1_score": 0.9686827841349049,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.99      0.99      6998\n       ANGEL       1.00      1.00      1.00        31\n        CLAN       0.92      0.92      0.92       172\n       CRIME       0.79      0.40      0.53       271\n        DATE       0.81      0.76      0.79       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.96      0.96      0.96       700\n         LOC       0.80      0.85      0.82       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.89      0.48      0.63       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.97      0.98     20272\n     PROPHET       0.99      0.98      0.98      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.20      0.20      0.20         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.89      0.82      0.85     35267\nweighted avg       0.98      0.96      0.97     35267\n"
+    },
+    {
+        "epoch": 12,
+        "loss": 1553.9707674392166,
+        "accuracy": 0.9892912560707736,
+        "f1_score": 0.9665686626030835,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       1.00      0.98      0.99      6998\n       ANGEL       1.00      0.81      0.89        31\n        CLAN       0.91      0.94      0.92       172\n       CRIME       0.78      0.45      0.57       271\n        DATE       0.95      0.76      0.85       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.95      0.96      0.96       700\n         LOC       0.78      0.81      0.80       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.85      0.50      0.63       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.97      0.98     20272\n     PROPHET       0.99      0.96      0.98      4333\n        RLIG       0.96      1.00      0.98       114\n        TIME       0.14      0.80      0.24         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.89      0.85      0.84     35267\nweighted avg       0.98      0.96      0.96     35267\n"
+    },
+    {
+        "epoch": 13,
+        "loss": 1572.7957828237918,
+        "accuracy": 0.9888197005420873,
+        "f1_score": 0.9659358708848104,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.99      6998\n       ANGEL       0.84      1.00      0.91        31\n        CLAN       0.90      0.89      0.89       172\n       CRIME       0.87      0.45      0.59       271\n        DATE       0.85      0.74      0.79       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.96      0.96      0.96       700\n         LOC       0.70      0.79      0.74       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.81      0.55      0.65       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.98      0.98     20272\n     PROPHET       0.99      0.96      0.98      4333\n        RLIG       0.96      1.00      0.98       114\n        TIME       0.44      0.80      0.57         5\n\n   micro avg       0.97      0.96      0.97     35267\n   macro avg       0.89      0.86      0.86     35267\nweighted avg       0.97      0.96      0.96     35267\n"
+    },
+    {
+        "epoch": 14,
+        "loss": 1381.5245891264872,
+        "accuracy": 0.9893194687947121,
+        "f1_score": 0.9668424370952027,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.99      6998\n       ANGEL       1.00      0.97      0.98        31\n        CLAN       0.96      0.94      0.95       172\n       CRIME       0.88      0.41      0.56       271\n        DATE       0.92      0.74      0.82       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       1.00      1.00      1.00       152\n        HELL       0.96      0.96      0.96       700\n         LOC       0.75      0.80      0.78       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.89      0.46      0.60       631\n        PARA       1.00      0.97      0.98       720\n        PERS       0.98      0.97      0.98     20272\n     PROPHET       0.98      0.97      0.98      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       1.00      0.80      0.89         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.96      0.85      0.89     35267\nweighted avg       0.98      0.96      0.96     35267\n"
+    },
+    {
+        "epoch": 15,
+        "loss": 1372.313971233235,
+        "accuracy": 0.9899240271648228,
+        "f1_score": 0.9694892897083704,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.98      6998\n       ANGEL       1.00      1.00      1.00        31\n        CLAN       0.96      0.94      0.95       172\n       CRIME       0.88      0.42      0.57       271\n        DATE       0.91      0.75      0.82       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.96      0.95      0.95       700\n         LOC       0.84      0.82      0.83       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.92      0.49      0.64       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.97      0.98     20272\n     PROPHET       0.99      0.98      0.99      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.36      1.00      0.53         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.92      0.87      0.87     35267\nweighted avg       0.98      0.96      0.97     35267\n"
+    },
+    {
+        "epoch": 16,
+        "loss": 1285.973502396018,
+        "accuracy": 0.9893597726860528,
+        "f1_score": 0.9678585258809862,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.98      6998\n       ANGEL       0.83      0.97      0.90        31\n        CLAN       0.88      0.94      0.90       172\n       CRIME       0.92      0.41      0.57       271\n        DATE       0.92      0.76      0.83       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.96      0.95      0.96       700\n         LOC       0.83      0.83      0.83       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.88      0.45      0.59       631\n        PARA       1.00      0.97      0.98       720\n        PERS       0.98      0.97      0.98     20272\n     PROPHET       0.99      0.97      0.98      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.50      0.80      0.62         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.92      0.85      0.87     35267\nweighted avg       0.98      0.96      0.97     35267\n"
+    },
+    {
+        "epoch": 17,
+        "loss": 1262.7457178844538,
+        "accuracy": 0.9889647945509139,
+        "f1_score": 0.9661689120506249,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.98      0.98      0.98      6998\n       ANGEL       0.84      1.00      0.91        31\n        CLAN       0.97      0.94      0.95       172\n       CRIME       0.83      0.42      0.56       271\n        DATE       0.84      0.75      0.79       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.95      0.93      0.94       700\n         LOC       0.80      0.81      0.81       485\n       MONTH       0.91      1.00      0.95        20\n       NatOb       0.90      0.48      0.62       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.97      0.98     20272\n     PROPHET       0.98      0.98      0.98      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.14      1.00      0.24         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.88      0.87      0.84     35267\nweighted avg       0.98      0.96      0.96     35267\n"
+    },
+    {
+        "epoch": 18,
+        "loss": 1211.9325163609196,
+        "accuracy": 0.9897587812103259,
+        "f1_score": 0.9689816872929603,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.99      6998\n       ANGEL       1.00      1.00      1.00        31\n        CLAN       0.94      0.94      0.94       172\n       CRIME       0.87      0.38      0.53       271\n        DATE       0.89      0.76      0.82       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.95      0.95      0.95       700\n         LOC       0.81      0.81      0.81       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.89      0.51      0.65       631\n        PARA       1.00      0.97      0.99       720\n        PERS       0.98      0.98      0.98     20272\n     PROPHET       0.99      0.97      0.98      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.18      0.80      0.30         5\n\n   micro avg       0.98      0.96      0.97     35267\n   macro avg       0.90      0.85      0.85     35267\nweighted avg       0.98      0.96      0.97     35267\n"
+    },
+    {
+        "epoch": 19,
+        "loss": 1155.3967503370802,
+        "accuracy": 0.9888479132660258,
+        "f1_score": 0.9657738095238095,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.98      6998\n       ANGEL       1.00      1.00      1.00        31\n        CLAN       0.95      0.94      0.94       172\n       CRIME       0.88      0.41      0.56       271\n        DATE       0.87      0.74      0.80       323\n         DAY       1.00      0.60      0.75        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.95      0.96      0.95       700\n         LOC       0.70      0.86      0.77       485\n       MONTH       1.00      1.00      1.00        20\n       NatOb       0.85      0.47      0.61       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.98      0.98     20272\n     PROPHET       0.99      0.96      0.98      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.18      1.00      0.30         5\n\n   micro avg       0.97      0.96      0.97     35267\n   macro avg       0.89      0.87      0.85     35267\nweighted avg       0.97      0.96      0.96     35267\n"
+    },
+    {
+        "epoch": 20,
+        "loss": 1160.3948763509788,
+        "accuracy": 0.9888116397638193,
+        "f1_score": 0.9654739664294576,
+        "class_metrics": "              precision    recall  f1-score   support\n\n       ALLAH       0.99      0.98      0.99      6998\n       ANGEL       0.89      1.00      0.94        31\n        CLAN       0.91      0.94      0.92       172\n       CRIME       0.91      0.42      0.58       271\n        DATE       0.90      0.74      0.81       323\n         DAY       1.00      0.70      0.82        40\n       HBOOK       0.97      1.00      0.98       152\n        HELL       0.96      0.95      0.95       700\n         LOC       0.71      0.84      0.77       485\n       MONTH       0.91      1.00      0.95        20\n       NatOb       0.75      0.56      0.64       631\n        PARA       1.00      0.98      0.99       720\n        PERS       0.98      0.98      0.98     20272\n     PROPHET       0.99      0.97      0.98      4333\n        RLIG       1.00      1.00      1.00       114\n        TIME       0.33      0.80      0.47         5\n\n   micro avg       0.97      0.96      0.97     35267\n   macro avg       0.89      0.87      0.86     35267\nweighted avg       0.97      0.96      0.96     35267\n"
+    }
+]
